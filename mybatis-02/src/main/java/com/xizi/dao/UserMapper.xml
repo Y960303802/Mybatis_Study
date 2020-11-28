@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.xizi.dao.UserMapper">
+    <!--配置查询所有-->
+    <select id="getUserList" resultType="user">
+        select * from user
+    </select>
+    <select id="getUserById" resultType="com.xizi.pojo.User" parameterType="int">
+        select * from user where id=#{idsdas}
+    </select>
+    <insert id="addUser"  parameterType="com.xizi.pojo.User">
+        insert into user (id,name,pwd) values (#{id},#{name},#{pwd});
+    </insert>
+    <update id="updateUser" parameterType="com.xizi.pojo.User">
+        update user set name=#{name} ,pwd=#{pwd} where id=#{id}
+    </update>
+    <delete id="deleteUser" parameterType="int">
+        delete from user where id=#{idasd}
+    </delete>
+
+</mapper>

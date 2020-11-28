@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xizi.dao.UserMapper">
+
+    <!--在当前Mapper.xml中使用二级缓存  每隔60秒刷新缓存-->
+    <cache />
+
+    <select id="queryById" resultType="user" useCache="true">
+    select * from user where id=#{id}
+    </select>
+
+    <update id="updateUser" parameterType="user">
+        update mybatis.user set name=#{name}, pwd=#{pwd} where id=#{id};
+    </update>
+</mapper>
